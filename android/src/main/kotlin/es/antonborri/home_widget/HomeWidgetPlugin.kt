@@ -175,7 +175,7 @@ class HomeWidgetPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
                     if (glanceWidgetName != null) {
                         val scope = CoroutineScope(Dispatchers.Default)
                         scope.launch {
-                            val clazz = Class.forName(glanceWidgetName).kotlin
+                            val clazz = Class.forName(glanceWidgetName)
                             val glanceAppWidget: GlanceAppWidget = clazz.objectInstance as GlanceAppWidget
                             glanceAppWidget.updateAll(context)
                         }
