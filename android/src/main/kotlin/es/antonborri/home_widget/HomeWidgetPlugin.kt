@@ -175,9 +175,8 @@ class HomeWidgetPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
                     if (glanceWidgetName != null) {
                         val scope = CoroutineScope(Dispatchers.Default)
                         scope.launch {
-                            val clazz = Class.forName(glanceWidgetName)
-                            
-                            val glanceAppWidget: GlanceAppWidget = clazz as GlanceAppWidget
+                            val widgetClass = Class.forName("com.janzimola.goal_venture.CounterWidget") // Replace with the correct class name
+                            val glanceAppWidget: GlanceAppWidget = widgetClass.newInstance() as GlanceAppWidget
                             glanceAppWidget.updateAll(context)
                         }
                     }
