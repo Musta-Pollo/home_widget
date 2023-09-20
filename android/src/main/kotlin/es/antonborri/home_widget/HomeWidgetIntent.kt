@@ -41,4 +41,12 @@ object HomeWidgetBackgroundIntent {
 
         return PendingIntent.getBroadcast(context, 0, intent, flags)
     }
+
+    fun intent(context: Context, uri: Uri? = null): Intent {
+        val intent = Intent(context, HomeWidgetBackgroundReceiver::class.java)
+        intent.data = uri
+        intent.action = HOME_WIDGET_BACKGROUND_ACTION
+
+        return intent;
+    }
 }
